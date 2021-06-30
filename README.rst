@@ -1,7 +1,7 @@
 
 
-High Performance Computing 
-###############################
+Tom Bresee - Michigan Milestone - Data Science 
+##################################################
 
 
 |
@@ -11,6 +11,12 @@ High Performance Computing
 :Authors: Tom Bresee
 :University: Michigan
 :HPC: Great Lakes
+:Hadoop:  ?
+:Mark:  I
+:URL:  https://tom-bresee.herokuapp.com/
+
+
+
 
 
 |
@@ -29,7 +35,6 @@ Accessing Great Lakes via Browser
 
 
 
-
 |
 |
 
@@ -43,11 +48,8 @@ LinkedIn Learning (U of Michigan)
 
 
 
-
 |
 |
-
-
 
 
 Great Lakes Advanced 
@@ -56,8 +58,10 @@ Great Lakes Advanced
 * https://docs.google.com/presentation/d/1BSVBvok47JLc0imlvTnG3Mt_Wh_sfA-hb9j0Q_0XSyQ/edit#slide=id.p11
 
 
+
 |
 |
+
 
 
 THUNDER-X
