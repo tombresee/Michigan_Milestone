@@ -59,10 +59,6 @@ beer_layout = go.Layout(
 beer_fig = go.Figure(data=beer_data, layout=beer_layout)
 
 
-
-
-
-
 menu_tabs_styles = {
     'borderBottom': '1px solid #222d32',
     'padding': '0px 0px 0px 0px',
@@ -105,13 +101,16 @@ menu_tab_selected_style = {
 #-------------------------------------------------------------------------------------
 
 
+
 ########### Initiate the app/dashboard 
 
 external_css = ['http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css',
                 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
                 'https://cesium.com/downloads/cesiumjs/releases/1.76/Build/Cesium/Widgets/widgets.css']
 
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
 
 app = dash.Dash(__name__, 
     title='Sensor Analysis', 
@@ -121,10 +120,6 @@ app = dash.Dash(__name__,
 server = app.server
 
 app.title=tabtitle
-
-
-
-
 
 
 
@@ -181,31 +176,11 @@ app.layout = html.Div(className='skin-blue', children=[
                                     value='menu-item-home',
                                     style=menu_tab_style,
                                     selected_style=menu_tab_selected_style),
-                            dcc.Tab(label='All Satellites',
-                                    value='menu-item-allsats',
+                            dcc.Tab(label='Home',
+                                    value='menu-item-home',
                                     style=menu_tab_style,
                                     selected_style=menu_tab_selected_style),
-                            dcc.Tab(label='History',
-                                    value='menu-item-history',
-                                    style=menu_tab_style,
-                                    selected_style=menu_tab_selected_style),
-                            dcc.Tab(label='Intercepts',
-                                    value='menu-item-intercepts',
-                                    style=menu_tab_style,
-                                    selected_style=menu_tab_selected_style),
-                            dcc.Tab(label='Starlink',
-                                   value='menu-item-starlink',
-                                   style=menu_tab_style,
-                                   selected_style=menu_tab_selected_style),
-                            dcc.Tab(label='Maneuver Detection',
-                                   value='menu-item-maneuvers',
-                                   style=menu_tab_style,
-                                   selected_style=menu_tab_selected_style),
-                            dcc.Tab(label='Gabbard Diagram',
-                                    value='menu-item-gabbard',
-                                    style=menu_tab_style,
-                                    selected_style=menu_tab_selected_style),
-                        ]),
+                                        ]),
                         html.Div(id='ui_dummy', style={'display': 'none'}),
                         html.Div(id='csk', style={'display': 'none'}, children="ZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnFkR2tpT2lJd05tSXdORGN5WkMwNE5tUTBMVFExTnpRdFltVTNOeTAxWVRabFpUVTRNRFUzWkRVaUxDSnBaQ0k2TkRBeE5ESXNJbWxoZENJNk1UWXdPRE0xTkRZNE9IMC5uT1pBQ291ay0tZnhQX2V1cXRnRmt3d05TMi02NEJaODFBTWVNbzlwZ1lj")
                     ])
