@@ -50,7 +50,9 @@ app.title=tabtitle
 ########### Set up the layout
 app.layout = html.Div(children=[
     
-    html.H1(myheading),
+    html.H3(myheading),
+
+    html.H4('Tactics for ML'),
 
     # dcc.Graph(
     #     id='flyingdog',
@@ -64,8 +66,6 @@ app.layout = html.Div(children=[
     html.A('Data Source', href=sourceurl),
     
     ])
-
-
 
 
 
