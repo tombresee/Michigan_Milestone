@@ -12,6 +12,8 @@ from oc_dash_tab_home import homepage
 
 
 
+tab_home = homepage()
+
 
 
 
