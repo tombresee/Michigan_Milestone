@@ -19,7 +19,6 @@ Tom Bresee - Michigan Milestone - Data Science
 
 
 
-
 |
 |
 
@@ -210,9 +209,6 @@ Submitted batch job 21756876
         21756876_1  standard      arr  tbresee training  R       0:09      1 gl3055
         21756876_2  standard      arr  tbresee training  R       0:09      1 gl3056
         21756876_3  standard      arr  tbresee training  R       0:09      1 gl3156
-
-
-
 
 
 
