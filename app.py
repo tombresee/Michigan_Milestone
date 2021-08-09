@@ -9,52 +9,14 @@ import plotly.graph_objs as go
 
 # import specific pages
 from oc_dash_tab_home import homepage
-
-
-
 tab_home = homepage()
 
 
 
 
-########### Define your variables
-beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
-ibu_values=[35, 60, 85, 75]
-abv_values=[5.4, 7.1, 9.2, 4.3]
-color1='darkred'
-color2='orange'
-mytitle='Beer Comparison'
-tabtitle='beer!'
-myheading='Flying Dog Beers'
-label1='IBU'
-label2='ABV'
 githublink='https://github.com/tombresee/Michigan_Milestone'
 #  githublink='https://github.com/austinlasseter/flying-dog-beers'
 sourceurl='https://www.flyingdog.com/beers/'
-
-
-
-
-########### Set up the chart
-bitterness = go.Bar(
-    x=beers,
-    y=ibu_values,
-    name=label1,
-    marker={'color':color1}
-)
-alcohol = go.Bar(
-    x=beers,
-    y=abv_values,
-    name=label2,
-    marker={'color':color2}
-)
-
-beer_data = [bitterness, alcohol]
-beer_layout = go.Layout(
-    barmode='group',
-    title = mytitle
-)
-
 
 beer_fig = go.Figure(data=beer_data, layout=beer_layout)
 
@@ -66,7 +28,8 @@ menu_tabs_styles = {
     'width':'100%',
     'border': '1px solid',
     'border-color' : '#222d32',
-    'width': '230px'}
+    'width': '230px'
+}
 
 
 menu_tab_style = {
@@ -78,7 +41,8 @@ menu_tab_style = {
     'font-size': '14px',
     'color': '#b8c7ce',
     'text-align': 'left',
-    'font-family': "'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif"}
+    'font-family': "'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+}
 
 
 menu_tab_selected_style = {
@@ -90,9 +54,8 @@ menu_tab_selected_style = {
     'font-size': '14px',
     'color': 'white',
     'text-align': 'left',
-    'font-family': "'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif"}
-
-
+    'font-family': "'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+}
 
 
 
@@ -101,26 +64,22 @@ menu_tab_selected_style = {
 #-------------------------------------------------------------------------------------
 
 
-
 ########### Initiate the app/dashboard 
 
-external_css = ['http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css',
+external_stylesheets = ['http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css',
                 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
                 'https://cesium.com/downloads/cesiumjs/releases/1.76/Build/Cesium/Widgets/widgets.css']
 
-
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+#  external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 
 app = dash.Dash(__name__, 
     title='Sensor Analysis', 
-    external_stylesheets=external_css, 
     external_stylesheets=external_stylesheets)
 
 server = app.server
 
-app.title=tabtitle
-
+################ app.title=tabtitle
 
 
 ########### Set up the layout
@@ -137,7 +96,6 @@ app.title=tabtitle
 #     html.A('Data Source', href=sourceurl),
 #     ]
 # )
-
 
 
 # --- new code ---
@@ -195,11 +153,7 @@ app.layout = html.Div(className='skin-blue', children=[
 
 
 if __name__ == '__main__':
-    app.run_server()
-
-
-
-
+    app.run_server(debug=True)
 
 
 
@@ -260,12 +214,6 @@ if __name__ == '__main__':
 # app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 # server = app.server
 # app.title=tabtitle
-
-
-
-
-
-
 
 
 
