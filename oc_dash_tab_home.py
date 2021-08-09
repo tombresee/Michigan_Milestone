@@ -1,6 +1,3 @@
-# Orbital Congestion Dashboard
-# Written by Nicholas Miller
-
 import dash
 import dash_html_components as html
 import dash_core_components as dcc
@@ -11,7 +8,6 @@ import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
 import math
-
 
 
 class homepage():
@@ -77,11 +73,15 @@ class homepage():
                                             html.Li(html.A("Satellite-CZML", href='https://pypi.org/project/satellite-czml/', target="_blank"))
                                         ])
                                     ),
+
+
                                     html.P(children=[
                                         "This dashboard also uses CersiumJS for some of the visualziations.  ",
                                         html.A("CesiumJS", href='https://cesium.com/cesiumjs/', target="_blank"),
                                         " is an open source JavaScript library for creating a 3D map of the earth and creates interactive animations using their CZML language written in JSON."
                                     ]),
+                                    
+
                                     html.P("This work is a collaboration of the following individuals (surname in alphabetical order):"),
                                     html.P(
                                         html.Ul(children=[
@@ -90,12 +90,16 @@ class homepage():
                                             html.Li(html.A(href='https://github.com/cassova',children="Nicholas Miller", target="_blank")),
                                         ])
                                     ),
+                                    
+
                                     html.P(children=[
                                         "For the full report of the analysis, please ",
                                         html.A(href='https://mads-hatters.github.io/',children="Click Here", target="_blank"),
                                         ". The code for this dashboard and the report are open source under the MIT license and can be found ",
                                         html.A(href='https://github.com/mads-hatters/SIADS-591-Orbital-Congestion',children="Here", target="_blank"),
                                     ]),
+                                    
+
                                     html.P(children=[
                                         html.B("Suggested citation: "),
                                         "Chen-Deng-Miller, Orbital Congestion, 3 Feb 2021, Retrieved from: https://oc-dash.herokuapp.com/"

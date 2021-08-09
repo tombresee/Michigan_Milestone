@@ -1,4 +1,3 @@
-
 # import core libraries 
 import dash
 import dash_core_components as dcc
@@ -14,11 +13,16 @@ tab_home = homepage()
 
 
 
+
+
+#  DO I NEED THIS ????
+
 githublink='https://github.com/tombresee/Michigan_Milestone'
 #  githublink='https://github.com/austinlasseter/flying-dog-beers'
+
 sourceurl='https://www.flyingdog.com/beers/'
 
-beer_fig = go.Figure(data=beer_data, layout=beer_layout)
+
 
 
 menu_tabs_styles = {
