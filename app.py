@@ -33,12 +33,14 @@ alcohol = go.Bar(
 )
 
 beer_data = [bitterness, alcohol]
+
 beer_layout = go.Layout(
     barmode='group',
     title = mytitle
 )
 
 beer_fig = go.Figure(data=beer_data, layout=beer_layout)
+
 
 
 ########### Initiate the app
