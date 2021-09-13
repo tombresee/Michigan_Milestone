@@ -81,12 +81,14 @@ def render_content(tab):
 
 
 
+
 # Tab 1 callback
 @app.callback(dash.dependencies.Output('page-1-content', 'children'),
               [dash.dependencies.Input('page-1-dropdown', 'value')])
 def page_1_dropdown(value):
     #  remove this line, so no return: 
-    return 'You have selected "{}"'.format(value)
+    # return 'You have selected "{}"'.format(value)
+    return None 
     # or maybe return None ? 
 
 
