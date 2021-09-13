@@ -11,7 +11,9 @@ tab_1_layout = html.Div([
 
         html.Div([
             html.H6('Select one:'),
-            
+
+        html.P("The following additional Python libaries are used by this dashboard:"),
+
         # may need to put that back in 
             dcc.Dropdown(
                 id='page-1-dropdown',
