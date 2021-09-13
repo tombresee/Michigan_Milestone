@@ -1,13 +1,16 @@
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
+
 tab_3_layout = html.Div([
-    html.H1('Page 3'),
+    html.H5('Unsupervised Machine Learning'),
     html.Div([
         html.Div([
             html.H6('Select one:'),
+
             dcc.Slider(
                 id='page-3-slider',
                 min=1,
@@ -17,6 +20,9 @@ tab_3_layout = html.Div([
                 value=5,
             ),
         ], className='four columns'),
+        
+
+
         html.Div([
             html.H6(id='page-3-content')
         ], className='eight columns'),

@@ -5,12 +5,13 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 
-tab_1_layout = html.Div([
-    html.H4('Introduction'),
-    html.Div([
+tab_1_layout =   html.Div([
+    
+    html.H5('Introduction:'),
 
+    html.Div([
         html.Div([
-            html.H6('Select one:'),
+            html.H7('Select one:'),
 
             html.P("The following additional Python libaries are used by this dashboard:"),
 
@@ -33,6 +34,7 @@ tab_1_layout = html.Div([
                             ),
             ),
         ], className='four columns'),
+
 
         html.Div([
             html.H6(id='page-1-content')
