@@ -1,3 +1,5 @@
+
+# core libraries 
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -7,12 +9,22 @@ from tabs import tab_1
 from tabs import tab_2
 from tabs import tab_3
 
-########### Define your variables ######
 
-myheading1 = 'Plotly Dash -- multiple tabs'
-tabtitle = 'dash tabs'
+
+########### Define variables ########### 
+
+myheading1 = 'Sensor Analysis - AoT Cluster'
+
+tabtitle = 'Array_of_Things_Analysis'
+
 sourceurl = 'https://dash.plot.ly/dash-core-components/tabs'
-githublink = 'https://github.com/austinlasseter/dash-multitab-simple'
+# what does this do ? 
+
+# original code:  
+# githublink = 'https://github.com/austinlasseter/dash-multitab-simple'
+githublink = 'https://github.com/tombresee/Michigan_Milestone'
+
+
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -22,7 +34,9 @@ app.title=tabtitle
 app.config['suppress_callback_exceptions'] = True
 
 
-########### Set up the layout
+
+
+########### Set up the layout ###########
 
 app.layout = html.Div([
     html.H1(myheading1),
@@ -46,6 +60,8 @@ app.layout = html.Div([
                 'backgroundColor':'#D3D3D3',})
 ])
 
+
+
 @app.callback(Output('tabs-content-example', 'children'),
               [Input('tabs-example', 'value')])
 def render_content(tab):
@@ -56,11 +72,14 @@ def render_content(tab):
     elif tab == 'tab-3-example':
         return tab_3.tab_3_layout
 
+
+
 # Tab 1 callback
 @app.callback(dash.dependencies.Output('page-1-content', 'children'),
               [dash.dependencies.Input('page-1-dropdown', 'value')])
 def page_1_dropdown(value):
     return 'You have selected "{}"'.format(value)
+
 
 # Tab 2 callback
 @app.callback(Output('page-2-content', 'children'),
@@ -68,11 +87,13 @@ def page_1_dropdown(value):
 def page_2_radios(value):
     return 'You have selected "{}"'.format(value)
 
+
 # Tab 3 callback
 @app.callback(Output('page-3-content', 'children'),
               [Input('page-3-slider', 'value')])
 def page_3_slider(value):
     return f'You have selected "{str(value)}"'
+
 
 
 ############ Deploy
