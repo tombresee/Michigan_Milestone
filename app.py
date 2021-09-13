@@ -87,6 +87,7 @@ def render_content(tab):
 def page_1_dropdown(value):
     #  remove this line, so no return: 
     return 'You have selected "{}"'.format(value)
+    # or maybe return None ? 
 
 
 
