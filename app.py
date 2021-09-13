@@ -11,7 +11,6 @@ from tabs import tab_3
 
 
 
-
 ########### Define variables ########### 
 
 myheading1 = 'Sensor Analysis - AoT Cluster'
