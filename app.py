@@ -37,7 +37,6 @@ app.config['suppress_callback_exceptions'] = True
 
 
 
-
 ########### Set up the layout ###########
 
 app.layout = html.Div([
@@ -45,14 +44,17 @@ app.layout = html.Div([
     dcc.Tabs(id="tabs-example", value='tab-1-example',
             children=[
                 dcc.Tab(label='Introduction', value='tab-1-example'),
-                dcc.Tab(label='Tab Two', value='tab-2-example'),
-                dcc.Tab(label='Tab Three', value='tab-3-example'),
+                dcc.Tab(label='Analysis', value='tab-2-example'),
+                dcc.Tab(label='Machine Learning', value='tab-3-example'),
     ]),
-    
+
+
     html.Div([
         html.Div(id='tabs-content-example'),
     ], className='twelve columns',
         style={'marginBottom': 50, 'marginTop': 25}),
+
+
     html.Div([
         html.A('Code on Github', href=githublink),
         html.Br(),
@@ -65,8 +67,11 @@ app.layout = html.Div([
 
 
 
+
 @app.callback(Output('tabs-content-example', 'children'),
               [Input('tabs-example', 'value')])
+
+# this is the tab definitions 
 def render_content(tab):
     if tab == 'tab-1-example':
         return tab_1.tab_1_layout
@@ -84,6 +89,7 @@ def page_1_dropdown(value):
     return 'You have selected "{}"'.format(value)
 
 
+
 # Tab 2 callback
 @app.callback(Output('page-2-content', 'children'),
               [Input('page-2-radios', 'value')])
@@ -96,6 +102,7 @@ def page_2_radios(value):
               [Input('page-3-slider', 'value')])
 def page_3_slider(value):
     return f'You have selected "{str(value)}"'
+
 
 
 
