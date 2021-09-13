@@ -11,11 +11,13 @@ from tabs import tab_3
 
 
 
+
 ########### Define variables ########### 
 
 myheading1 = 'Sensor Analysis - AoT Cluster'
+# any way of making this font smaller ? 
 
-tabtitle = 'Array_of_Things_Analysis'
+tabtitle = 'Array_of_Things Analysis'
 
 sourceurl = 'https://dash.plot.ly/dash-core-components/tabs'
 # what does this do ? 
@@ -39,13 +41,14 @@ app.config['suppress_callback_exceptions'] = True
 ########### Set up the layout ###########
 
 app.layout = html.Div([
-    html.H1(myheading1),
+    html.H3(myheading1),
     dcc.Tabs(id="tabs-example", value='tab-1-example',
             children=[
-                dcc.Tab(label='Tab One', value='tab-1-example'),
+                dcc.Tab(label='Introduction', value='tab-1-example'),
                 dcc.Tab(label='Tab Two', value='tab-2-example'),
                 dcc.Tab(label='Tab Three', value='tab-3-example'),
     ]),
+    
     html.Div([
         html.Div(id='tabs-content-example'),
     ], className='twelve columns',

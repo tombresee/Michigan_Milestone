@@ -6,7 +6,7 @@ from dash.dependencies import Input, Output
 
 
 tab_1_layout = html.Div([
-    html.H1('Page 1'),
+    html.H4('Introduction'),
     html.Div([
         html.Div([
             html.H6('Select one:'),
