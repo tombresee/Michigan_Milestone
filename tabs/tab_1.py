@@ -12,12 +12,12 @@ tab_1_layout = html.Div([
         html.Div([
             html.H6('Select one:'),
 
-        html.P("The following additional Python libaries are used by this dashboard:"),
+            html.P("The following additional Python libaries are used by this dashboard:"),
 
-        # may need to put that back in 
+            # may need to put that back in 
             dcc.Dropdown(
                 id='page-1-dropdown',
-                options=[{'label': i, 'value': i} for i in ['burger', 'fries', 'milkshake']],
+                options=[{'label': i, 'value': i} for i in ['A', 'B', 'C']],
                 value='burger',
                 style = dict(
                             width = '70%',
