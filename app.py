@@ -71,8 +71,7 @@ menu_tabs_styles = {
 menu_tab_style = {
     'border': '1px solid',
     'border-color' : '#222d32',
-    # 'backgroundColor': '#222d32',
-    'backgroundColor': 'white', 
+    'backgroundColor': '#222d32',
     'padding': '15px 5px 15px 15px',
     'display': 'block',
     'font-size': '14px',
@@ -83,8 +82,7 @@ menu_tab_style = {
 menu_tab_selected_style = {
     'border': '1px solid',
     'border-color' : '#2c3b41',
-    'backgroundColor': 'white', 
-    #'backgroundColor': '#2c3b41',
+    'backgroundColor': '#2c3b41',
     'padding': '15px 5px 15px 15px',
     'display': 'block',
     'font-size': '14px',
@@ -101,10 +99,7 @@ app.layout = html.Div([
 
               children=[
                dcc.Tab(label='Introduction', 
-                       value='tab-1-example',
-                       selected_style=menu_tab_selected_style, 
-                       style=menu_tab_style,),
-
+                       value='tab-1-example'),
                dcc.Tab(label='Data Analysis', value='tab-2-example'),
                dcc.Tab(label='Visualization', value='tab-3-example'),
                dcc.Tab(label='Unsupervised Machine Learning', value='tab-4-example'),
