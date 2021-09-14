@@ -57,11 +57,29 @@ app.config['suppress_callback_exceptions'] = True  # DO I NEED THIS ?
 
 #------------------------------------------------------------------------------------------------
 # --- Set up the layout ---
+
+menu_tab_style = {
+    'border': '1px solid',
+    'border-color' : '#222d32',
+    'backgroundColor': '#222d32',
+    'padding': '15px 5px 15px 15px',
+    'display': 'block',
+    'font-size': '14px',
+    'color': '#b8c7ce',
+    'text-align': 'left',
+    'font-family': "'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+}
+
 app.layout = html.Div([
     html.H4(myheading1),
-    dcc.Tabs(id="tabs-example", value='tab-1-example',
-             children=[
-               dcc.Tab(label='Introduction', value='tab-1-example'),
+    dcc.Tabs( id="tabs-example", 
+              value='tab-1-example',
+
+              children=[
+               dcc.Tab(label='Introduction', 
+                       value='tab-1-example',
+                       style=menu_tab_style,),
+
                dcc.Tab(label='Data Analysis', value='tab-2-example'),
                dcc.Tab(label='Visualization', value='tab-3-example'),
                dcc.Tab(label='Unsupervised Machine Learning', value='tab-4-example'),
