@@ -10,6 +10,7 @@ from tabs import tab_1
 from tabs import tab_2
 from tabs import tab_3
 from tabs import tab_4
+from tabs import tab_5
 
 
 
@@ -28,7 +29,6 @@ githublink = 'https://github.com/tombresee/Michigan_Milestone'
 
 
 
-
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -43,7 +43,9 @@ app.config['suppress_callback_exceptions'] = True
 app.layout = html.Div([
     html.H5(myheading1),
     html.H7('Tom and Michael'), 
-    
+
+    # should this be value = 'tab-1-example' ??????
+
 
     dcc.Tabs(id="tabs-example", value='tab-1-example',
             children=[
@@ -51,7 +53,9 @@ app.layout = html.Div([
                 dcc.Tab(label='Data Analysis', value='tab-2-example'),
                 dcc.Tab(label='Visualization', value='tab-3-example'),
                 dcc.Tab(label='Unsupervised Machine Learning', value='tab-4-example'),
+                dcc.Tab(label='Temp', value='tab-5-example'),
     ]),
+
     html.Div([
         html.Div(id='tabs-content-example'),
     ], className='twelve columns',
@@ -69,7 +73,6 @@ app.layout = html.Div([
 ])
 
 
-
 @app.callback(Output('tabs-content-example', 'children'),
               [Input('tabs-example', 'value')])
 def render_content(tab):
@@ -81,7 +84,8 @@ def render_content(tab):
         return tab_3.tab_3_layout
     elif tab == 'tab-4-example':
         return tab_4.tab_4_layout
-
+    elif tab == 'tab-5-example':
+        return tab_5.tab_5_layout
 
 
 # Tab 1 callback
@@ -109,6 +113,13 @@ def page_3_slider(value):
 @app.callback(Output('page-4-content', 'children'),
               [Input('page-4-slider', 'value')])
 def page_4_slider(value):
+    return None
+
+
+# Tab 5 callback
+@app.callback( Output('page-5-content', 'children'),
+              [Input('page-5-slider', 'value')])
+def page_5_slider(value):
     return None
 
 

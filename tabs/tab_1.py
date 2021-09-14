@@ -1,4 +1,3 @@
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -8,11 +7,21 @@ tab_1_layout = html.Div([
     html.H5('Introduction'),
     html.Div([
         html.Div([
-            html.H6('Introduction:'),
+            html.H6('Select one:'),
+            dcc.RadioItems(
+                id='page-1-radios',
+                options=[{'label': i, 'value': i} for i in ['Sensor', 'Node', 'KPI']],
+                value='Orange',
+                style = dict(
+                    width = '70%',
+                    display = 'inline-block',
+                    verticalAlign = "middle"
+                    ),
+            ),
+
         ], className='four columns'),
         html.Div([
-            html.H6(id='page-2-content')
+            html.H6(id='page-1-content')
         ], className='eight columns'),
     ], className='twelve columns'),
 ], className='twelve columns')
-
