@@ -38,7 +38,7 @@ color1='darkred'
 color2='orange'
 mytitle='Beer Comparison'
 tabtitle='beer!'
-myheading='Flying Dog Beers'
+myheading='t-SNE Visualization'
 label1='IBU'
 label2='ABV'
 #  githublink='https://github.com/austinlasseter/flying-dog-beers'
@@ -69,7 +69,7 @@ beer_fig = go.Figure(data=beer_data, layout=beer_layout)
 
 
 tab_5_layout = html.Div(children=[
-    html.H1(myheading),
+    html.H6(myheading),
     dcc.Graph(
         id='flyingdog',
         figure=beer_fig
