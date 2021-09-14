@@ -47,9 +47,8 @@ external_css =         ['http://code.ionicframework.com/ionicons/2.0.0/css/ionic
 
 # --- Standard ---
 app = dash.Dash(__name__, 
-                # careful, i removed this line of code:  
-                # external_stylesheets=[dbc.themes.BOOTSTRAP])
-                external_stylesheets=external_css)
+                external_stylesheets=[dbc.themes.BOOTSTRAP])  # this looks better i think 
+                # commented out this code:   external_stylesheets=external_css)
 
 server = app.server
 
