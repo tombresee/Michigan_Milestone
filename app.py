@@ -71,7 +71,6 @@ def render_content(tab):
         return tab_4.tab_4_layout
 
 
-
 # Tab 1 callback
 @app.callback(dash.dependencies.Output('page-1-content', 'children'),
               [dash.dependencies.Input('page-1-dropdown', 'value')])
