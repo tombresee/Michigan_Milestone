@@ -73,7 +73,13 @@ tab_5_layout = html.Div(children=[
     dcc.Graph(
         id='flyingdog',
         figure=beer_fig
-    )])
+    ), 
+    dcc.Graph(
+       id='flyingdog',
+       figure=beer_fig
+    )
+    ]
+    )
 
 
 
