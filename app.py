@@ -46,7 +46,8 @@ external_css =         ['http://code.ionicframework.com/ionicons/2.0.0/css/ionic
                         'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css']
 # --- Standard ---
 app = dash.Dash(__name__, 
-	            external_stylesheets=external_css)
+                external_stylesheets=[dbc.themes.BOOTSTRAP])
+	              # external_stylesheets=external_css)
 
 server = app.server
 
