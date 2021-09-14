@@ -1,4 +1,6 @@
 
+
+# libraries 
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -7,6 +9,9 @@ from dash.dependencies import Input, Output
 from tabs import tab_1
 from tabs import tab_2
 from tabs import tab_3
+from tabs import tab_4
+
+
 
 ########### Define variables ########### 
 myheading1 = 'Sensor Analysis - AoT Cluster'
@@ -20,6 +25,7 @@ sourceurl = 'https://dash.plot.ly/dash-core-components/tabs'
 # original code:  
 # githublink = 'https://github.com/austinlasseter/dash-multitab-simple'
 githublink = 'https://github.com/tombresee/Michigan_Milestone'
+
 
 
 
@@ -57,6 +63,8 @@ app.layout = html.Div([
                 'backgroundColor':'white',})
                 #  'backgroundColor':'#D3D3D3',})
 ])
+
+
 
 @app.callback(Output('tabs-content-example', 'children'),
               [Input('tabs-example', 'value')])
