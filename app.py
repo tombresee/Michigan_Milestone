@@ -71,11 +71,11 @@ def render_content(tab):
         return tab_4.tab_4_layout
 
 
+
 # Tab 1 callback
 @app.callback(dash.dependencies.Output('page-1-content', 'children'),
               [dash.dependencies.Input('page-1-dropdown', 'value')])
 def page_1_dropdown(value):
-    #return 'You have selected "{}"'.format(value)
     return None
 
 
@@ -84,14 +84,13 @@ def page_1_dropdown(value):
               [Input('page-2-radios', 'value')])
 def page_2_radios(value):
     return None
-    # return 'You have selected "{}"'.format(value)
+
 
 # Tab 3 callback
 @app.callback(Output('page-3-content', 'children'),
               [Input('page-3-slider', 'value')])
 def page_3_slider(value):
     return None
-    #return f'You have selected "{str(value)}"'
 
 
 # Tab 4 callback
@@ -99,7 +98,6 @@ def page_3_slider(value):
               [Input('page-4-slider', 'value')])
 def page_4_slider(value):
     return None
-    #return f'You have selected "{str(value)}"'
 
 
 ############ Deploy
