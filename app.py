@@ -42,6 +42,8 @@ app.config['suppress_callback_exceptions'] = True
 
 app.layout = html.Div([
     html.H5(myheading1),
+    html.H7('Tom and Michael'), 
+    
 
     dcc.Tabs(id="tabs-example", value='tab-1-example',
             children=[
