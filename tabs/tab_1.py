@@ -8,10 +8,10 @@ tab_1_layout = html.Div([
     html.H5('Introduction'),
     html.Div([
         html.Div([
-            html.H6('Select one:'),                     
+            html.H6('Introduction:'),
         ], className='four columns'),
         html.Div([
-            html.H6(id='page-1-content')
+            html.H6(id='page-2-content')
         ], className='eight columns'),
     ], className='twelve columns'),
 ], className='twelve columns')
