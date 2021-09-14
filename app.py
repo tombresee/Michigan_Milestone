@@ -74,11 +74,15 @@ app.layout = html.Div([
 ])
 
 
-@app.callback(Output('tabs-content-example', 'children'),
-              [Input('tabs-example', 'value')])
+
+# --- Pressing main menu buttons ---
+@app.callback(
+	Output('tabs-content-example', 'children'),
+    Input('tabs-example', 'value'))
 def render_content(tab):
     if tab == 'tab-1-example':
         return tab_1.tab_1_layout
+        # return tab_1.tab_something_function()
     elif tab == 'tab-2-example':
         return tab_2.tab_2_layout
     elif tab == 'tab-3-example':
@@ -132,9 +136,14 @@ def page_6_slider(value):
     return None
 
 
+# use ? keep ? 
+# Suppress errors (tabs)
+app.config['suppress_callback_exceptions'] = True
 
-############ Deploy
+
+
+# --- Deploy ---
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True,use_reloader=False)
 
 
