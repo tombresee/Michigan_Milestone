@@ -71,7 +71,8 @@ menu_tabs_styles = {
 menu_tab_style = {
     'border': '1px solid',
     'border-color' : '#222d32',
-    'backgroundColor': '#222d32',
+    # 'backgroundColor': '#222d32',
+    'backgroundColor': 'white', 
     'padding': '15px 5px 15px 15px',
     'display': 'block',
     'font-size': '14px',
@@ -82,7 +83,8 @@ menu_tab_style = {
 menu_tab_selected_style = {
     'border': '1px solid',
     'border-color' : '#2c3b41',
-    'backgroundColor': '#2c3b41',
+    'backgroundColor': 'white', 
+    #'backgroundColor': '#2c3b41',
     'padding': '15px 5px 15px 15px',
     'display': 'block',
     'font-size': '14px',
