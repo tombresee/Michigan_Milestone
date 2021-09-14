@@ -45,6 +45,7 @@ app.layout = html.Div([
         html.Div(id='tabs-content-example'),
     ], className='twelve columns',
         style={'marginBottom': 50, 'marginTop': 25}),
+
     html.Div([
         html.A('Code on Github', href=githublink),
         html.Br(),
@@ -52,7 +53,8 @@ app.layout = html.Div([
     ], className='twelve columns',
         style={'textAlign':'right',
                 'fontColor':'#FFFFFF',
-                'backgroundColor':'#D3D3D3',})
+                'backgroundColor':'white',})
+                #  'backgroundColor':'#D3D3D3',})
 ])
 
 @app.callback(Output('tabs-content-example', 'children'),
