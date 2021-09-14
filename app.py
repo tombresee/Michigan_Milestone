@@ -96,8 +96,8 @@ def render_content(tab):
 
 
 # Tab 1 callback
-@app.callback(dash.dependencies.Output('page-1-content', 'children'),
-              [dash.dependencies.Input('page-1-dropdown', 'value')])
+@app.callback(Output('page-1-content', 'children'),
+              [Input('page-1-dropdown', 'value')])
 def page_1_dropdown(value):
     return None
 
@@ -144,6 +144,6 @@ def page_6_slider(value):
 
 # --- Deploy ---
 if __name__ == '__main__':
-    app.run_server(debug=True,use_reloader=False)
+    app.run_server(debug=True)
 
 
