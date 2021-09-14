@@ -42,14 +42,15 @@ tab_1_layout = html.Div([
             # ),
 
 
-        #  ], className='four columns'),
-        ], 
-
+        ], className='four columns'),
+    
         html.Div([
             html.H6(id='page-1-content')
         ], className='eight columns'),
-    , className='twelve columns'),
+    ], className='twelve columns'),
 ], className='twelve columns')
+
+
 
 
 
