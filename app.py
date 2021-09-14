@@ -97,7 +97,7 @@ def render_content(tab):
 
 # Tab 1 callback
 @app.callback(dash.dependencies.Output('page-1-content', 'children'),
-              [dash.dependencies.Input('page-1-dropdown', 'value')])
+              dash.dependencies.Input('page-1-dropdown', 'value'))
 def page_1_dropdown(value):
     return None
 
@@ -138,7 +138,7 @@ def page_6_slider(value):
 
 # use ? keep ? 
 # Suppress errors (tabs)
-app.config['suppress_callback_exceptions'] = True
+# app.config['suppress_callback_exceptions'] = True
 
 
 
