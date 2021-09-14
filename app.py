@@ -29,7 +29,6 @@ sourceurl = 'https://dash.plot.ly/dash-core-components/tabs'
 githublink = 'https://github.com/tombresee/Michigan_Milestone'
 
 
-
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -45,8 +44,8 @@ app.config['suppress_callback_exceptions'] = True
 
 
 
-########### Set up the layout
 
+########### Set up the layout
 app.layout = html.Div([
     html.H5(myheading1),
         dcc.Tabs(id="tabs-example", value='tab-1-example',
