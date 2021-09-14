@@ -34,12 +34,12 @@ app.config['suppress_callback_exceptions'] = True
 ########### Set up the layout
 
 app.layout = html.Div([
-    html.H6(myheading1),
+    html.H5(myheading1),
     dcc.Tabs(id="tabs-example", value='tab-1-example',
             children=[
-                dcc.Tab(label='Tab One', value='tab-1-example'),
-                dcc.Tab(label='Tab Two', value='tab-2-example'),
-                dcc.Tab(label='Tab Three', value='tab-3-example'),
+                dcc.Tab(label='Introduction', value='tab-1-example'),
+                dcc.Tab(label='Analysis 2', value='tab-2-example'),
+                dcc.Tab(label='Unsupervised Machine Learning', value='tab-3-example'),
     ]),
     html.Div([
         html.Div(id='tabs-content-example'),
