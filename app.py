@@ -1,5 +1,4 @@
 
-
 # core libraries 
 import dash
 import dash_core_components as dcc
@@ -12,9 +11,7 @@ from tabs import tab_3
 
 
 
-
 ########### Define variables ########### 
-
 myheading1 = 'Sensor Analysis - AoT Cluster'
 # any way of making this font smaller ? 
 
@@ -30,16 +27,12 @@ githublink = 'https://github.com/tombresee/Michigan_Milestone'
 
 
 
-
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 app.title=tabtitle
 app.config['suppress_callback_exceptions'] = True
-
-
-
 
 
 
@@ -82,10 +75,13 @@ app.layout = html.Div([
 
 # this is the tab definitions, very critical 
 def render_content(tab):
-    if tab ==   'tab-1-example':
+    
+    if tab == 'tab-1-example':
         return tab_1.tab_1_layout
+
     elif tab == 'tab-2-example':
         return tab_2.tab_2_layout
+    
     elif tab == 'tab-3-example':
         return tab_3.tab_3_layout
 
@@ -96,10 +92,7 @@ def render_content(tab):
 @app.callback(dash.dependencies.Output('page-1-content', 'children'),
               [dash.dependencies.Input('page-1-dropdown', 'value')])
 def page_1_dropdown(value):
-    #  remove this line, so no return: 
-    # return 'You have selected "{}"'.format(value)
     return None 
-
 
 
 # Tab 2 callback

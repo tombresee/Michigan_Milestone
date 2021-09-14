@@ -16,11 +16,12 @@ tab_1_layout =   html.Div([
             html.P("The following additional Python libaries are used by this dashboard:"),
 
 
-            html.P(children=["This dashboard also uses CersiumJS for some of the visualziations.  ",
-                                        html.A("CesiumJS", href='https://cesium.com/cesiumjs/', target="_blank"),
-                                        " is an open source JavaScript library for creating a 3D map of the earth and creates interactive animations using their CZML language written in JSON."
-                                    ]),
-                                    
+            # html.P(children=["This dashboard also uses CersiumJS for some of the visualziations.  ",
+            #                             html.A("CesiumJS", href='https://cesium.com/cesiumjs/', target="_blank"),
+            #                             " is an open source JavaScript library for creating a 3D map of the earth and creates interactive animations using their CZML language written in JSON."
+            #                         ]),
+
+                             
             dcc.Dropdown(
                 id='page-1-dropdown',
                 options=[{'label': i, 'value': i} for i in ['A', 'B', 'C']],

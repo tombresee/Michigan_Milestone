@@ -9,6 +9,8 @@ tab_3_layout = html.Div([
     html.Div([
         html.Div([
             html.H6('Select one:'),
+            html.H6('Select one:'),
+
             dcc.Slider(
                 id='page-3-slider',
                 min=1,
