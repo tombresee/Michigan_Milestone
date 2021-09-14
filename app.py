@@ -78,7 +78,7 @@ app.layout = html.Div([
 # --- Pressing main menu buttons ---
 @app.callback(
 	Output('tabs-content-example', 'children'),
-    Input('tabs-example', 'value'))
+    [Input('tabs-example', 'value')])
 def render_content(tab):
     if tab == 'tab-1-example':
         return tab_1.tab_1_layout
