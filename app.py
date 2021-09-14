@@ -58,6 +58,16 @@ app.config['suppress_callback_exceptions'] = True  # DO I NEED THIS ?
 #------------------------------------------------------------------------------------------------
 # --- Set up the layout ---
 
+# --- Review all of this --- 
+menu_tabs_styles = {
+    'borderBottom': '1px solid #222d32',
+    'padding': '0px 0px 0px 0px',
+    'height': '46px',
+    'width':'100%',
+    'border': '1px solid',
+    'border-color' : '#222d32',
+    'width': '230px'
+}
 menu_tab_style = {
     'border': '1px solid',
     'border-color' : '#222d32',
@@ -69,6 +79,18 @@ menu_tab_style = {
     'text-align': 'left',
     'font-family': "'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 }
+menu_tab_selected_style = {
+    'border': '1px solid',
+    'border-color' : '#2c3b41',
+    'backgroundColor': '#2c3b41',
+    'padding': '15px 5px 15px 15px',
+    'display': 'block',
+    'font-size': '14px',
+    'color': 'white',
+    'text-align': 'left',
+    'font-family': "'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+}
+
 
 app.layout = html.Div([
     html.H4(myheading1),
@@ -78,6 +100,7 @@ app.layout = html.Div([
               children=[
                dcc.Tab(label='Introduction', 
                        value='tab-1-example',
+                       selected_style=menu_tab_selected_style, 
                        style=menu_tab_style,),
 
                dcc.Tab(label='Data Analysis', value='tab-2-example'),
