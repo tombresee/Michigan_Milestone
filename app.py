@@ -4,7 +4,7 @@
 #  Authors:    - 
 #  Good Ref:   https://github.com/Techfitlab/youtube_project/blob/main/app.py
 #  Ref dbc:    https://dash-bootstrap-components.opensource.faculty.ai/
-#  
+#              https://dash-bootstrap-components.opensource.faculty.ai/docs/
 
 #------------------------------------------------------------------------------------------------
 
@@ -44,10 +44,12 @@ githublink = 'https://github.com/tombresee/Michigan_Milestone'
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 external_css =         ['http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css',
                         'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css']
+
 # --- Standard ---
 app = dash.Dash(__name__, 
-                external_stylesheets=[dbc.themes.BOOTSTRAP])
-	              # external_stylesheets=external_css)
+                # careful, i removed this line of code:  
+                # external_stylesheets=[dbc.themes.BOOTSTRAP])
+                external_stylesheets=external_css)
 
 server = app.server
 
