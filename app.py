@@ -32,7 +32,13 @@ githublink = 'https://github.com/tombresee/Michigan_Milestone'
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+external_css = ['http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css',
+                'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
+                ]
+
+
+app = dash.Dash(__name__, external_stylesheets=external_css)
 server = app.server
 app.title=tabtitle
 app.config['suppress_callback_exceptions'] = True
