@@ -10,7 +10,6 @@ from tabs import tab_2
 from tabs import tab_3
 
 
-
 ########### Define variables ########### 
 myheading1 = 'Sensor Analysis - AoT Cluster'
 # any way of making this font smaller ? 
@@ -36,24 +35,23 @@ app.config['suppress_callback_exceptions'] = True
 
 
 
+
+
 ########### Set up the layout ###########
 
 app.layout = html.Div([
-    html.H3(myheading1),
+    html.H5(myheading1),
     dcc.Tabs(id="tabs-example", value='tab-1-example',
             children=[
-                dcc.Tab(label='Introduction', value='tab-1-example'),
-                dcc.Tab(label='Analysis', value='tab-2-example'),
-                dcc.Tab(label='Machine Learning', value='tab-3-example'),
+                dcc.Tab(label='Tab One', value='tab-1-example'),
+                dcc.Tab(label='Tab Two', value='tab-2-example'),
+                dcc.Tab(label='Tab Three', value='tab-3-example'),
     ]),
-
-
     html.Div([
         html.Div(id='tabs-content-example'),
     ], className='twelve columns',
         style={'marginBottom': 50, 'marginTop': 25}),
-
-
+    
     html.Div([
         html.A('Code on Github', href=githublink),
         html.Br(),
@@ -66,8 +64,6 @@ app.layout = html.Div([
 
 
 
-
-
 @app.callback(Output('tabs-content-example', 'children'),
               [Input('tabs-example', 'value')])
 
@@ -75,16 +71,12 @@ app.layout = html.Div([
 
 # this is the tab definitions, very critical 
 def render_content(tab):
-    
     if tab == 'tab-1-example':
         return tab_1.tab_1_layout
-
-    elif tab == 'tab-2-example':
-        return tab_2.tab_2_layout
-    
-    elif tab == 'tab-3-example':
-        return tab_3.tab_3_layout
-
+        elif tab == 'tab-2-example':
+            return tab_2.tab_2_layout
+        elif tab == 'tab-3-example':
+            return tab_3.tab_3_layout
 
 
 

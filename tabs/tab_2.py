@@ -8,7 +8,6 @@ tab_2_layout = html.Div([
     html.Div([
         html.Div([
             html.H6('Select one:'),
-
             dcc.RadioItems(
                 id='page-2-radios',
                 options=[{'label': i, 'value': i} for i in ['Orange', 'Blue', 'Red']],
@@ -19,8 +18,7 @@ tab_2_layout = html.Div([
                     verticalAlign = "middle"
                     ),
             ),
-        ], className='four columns'), 
-
+        ], className='four columns'),
         html.Div([
             html.H6(id='page-2-content')
         ], className='eight columns'),
