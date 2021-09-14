@@ -35,7 +35,7 @@ app.config['suppress_callback_exceptions'] = True
 
 app.layout = html.Div([
     html.H5(myheading1),
-    
+
     dcc.Tabs(id="tabs-example", value='tab-1-example',
             children=[
                 dcc.Tab(label='Introduction', value='tab-1-example'),
@@ -67,6 +67,10 @@ def render_content(tab):
         return tab_2.tab_2_layout
     elif tab == 'tab-3-example':
         return tab_3.tab_3_layout
+    elif tab == 'tab-4-example':
+        return tab_4.tab_4_layout
+
+
 
 # Tab 1 callback
 @app.callback(dash.dependencies.Output('page-1-content', 'children'),
@@ -87,6 +91,14 @@ def page_2_radios(value):
 @app.callback(Output('page-3-content', 'children'),
               [Input('page-3-slider', 'value')])
 def page_3_slider(value):
+    return None
+    #return f'You have selected "{str(value)}"'
+
+
+# Tab 4 callback
+@app.callback(Output('page-4-content', 'children'),
+              [Input('page-4-slider', 'value')])
+def page_4_slider(value):
     return None
     #return f'You have selected "{str(value)}"'
 
