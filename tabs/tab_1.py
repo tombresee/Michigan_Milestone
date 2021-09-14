@@ -17,8 +17,7 @@ tab_1_layout = html.Div([
                     display = 'inline-block',
                     verticalAlign = "middle"
                     ),
-            ),
-
+            )
         ], className='four columns'),
         html.Div([
             html.H6(id='page-1-content')
