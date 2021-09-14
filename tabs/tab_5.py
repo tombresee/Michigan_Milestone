@@ -60,6 +60,7 @@ alcohol = go.Bar(
 )
 
 beer_data = [bitterness, alcohol]
+
 beer_layout = go.Layout(
     barmode='group',
     title = mytitle
@@ -67,19 +68,12 @@ beer_layout = go.Layout(
 
 beer_fig = go.Figure(data=beer_data, layout=beer_layout)
 
-
 tab_5_layout = html.Div(children=[
     html.H6(myheading),
     dcc.Graph(
         id='flyingdog',
         figure=beer_fig
-    ), 
-    dcc.Graph(
-       id='flyingdog',
-       figure=beer_fig
-    )
-    ]
-    )
+    )])
 
 
 
