@@ -4,7 +4,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 tab_3_layout = html.Div([
-    html.H5('Page 3'),
+    html.H1('Page 3'),
     html.Div([
         html.Div([
             html.H6('Select one:'),
@@ -22,4 +22,3 @@ tab_3_layout = html.Div([
         ], className='eight columns'),
     ], className='twelve columns'),
 ], className='twelve columns')
-

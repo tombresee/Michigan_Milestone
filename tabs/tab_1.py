@@ -4,27 +4,17 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
-
-tab_1_layout =   html.Div([
-    
-    html.H5('Introduction:'),
-
+tab_1_layout = html.Div([
+    html.H1('Introduction'),
     html.Div([
         html.Div([
-            html.H7('Select one:'),
+            html.H6('Select one:'),
 
             html.P("The following additional Python libaries are used by this dashboard:"),
 
-
-            # html.P(children=["This dashboard also uses CersiumJS for some of the visualziations.  ",
-            #                             html.A("CesiumJS", href='https://cesium.com/cesiumjs/', target="_blank"),
-            #                             " is an open source JavaScript library for creating a 3D map of the earth and creates interactive animations using their CZML language written in JSON."
-            #                         ]),
-
-                             
             dcc.Dropdown(
                 id='page-1-dropdown',
-                options=[{'label': i, 'value': i} for i in ['A', 'B', 'C']],
+                options=[{'label': i, 'value': i} for i in ['burger', 'fries', 'milkshake']],
                 value='burger',
                 style = dict(
                             width = '70%',
@@ -33,34 +23,8 @@ tab_1_layout =   html.Div([
                             ),
             ),
         ], className='four columns'),
-
         html.Div([
             html.H6(id='page-1-content')
         ], className='eight columns'),
     ], className='twelve columns'),
 ], className='twelve columns')
-
-
-
-
-# tab_1_layout = html.Div([
-#     html.H1('Page 1'),
-#     html.Div([
-#         html.Div([
-#             html.H6('Select one:'),
-#             dcc.Dropdown(
-#                 id='page-1-dropdown',
-#                 options=[{'label': i, 'value': i} for i in ['burger', 'fries', 'milkshake']],
-#                 value='burger',
-#                 style = dict(
-#                             width = '70%',
-#                             display = 'inline-block',
-#                             verticalAlign = "middle"
-#                             ),
-#             ),
-#         ], className='four columns'),
-#         html.Div([
-#             html.H6(id='page-1-content')
-#         ], className='eight columns'),
-#     ], className='twelve columns'),
-# ], className='twelve columns')
