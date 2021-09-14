@@ -109,9 +109,7 @@ def page_2_radios(value):
 @app.callback(Output('page-3-content', 'children'),
               [Input('page-3-slider', 'value')])
 def page_3_slider(value):
-    return None
-    #  original code removed:
-    #  return f'You have selected "{str(value)}"'
+    return f'You have selected "{str(value)}"'
 
 
 
