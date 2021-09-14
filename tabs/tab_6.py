@@ -7,47 +7,81 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 
+tab_6_layout = html.Div(className='row',children=[
+                        html.Div(className='col-md-12',children=[
+                            html.Div(className='box',children=[
+                                html.Div(className='box-header with-border',children=[
+                                    html.H3(className='box-title',children='Home')
+                                ]),
+                                html.Div(className='box-body',children=[
+                                    html.P("Space, and more specifically low-earth orbit, is about to get a whole lot busier and this is making many concerned. At present, there are about 2,000 operational satellites in low-earth orbit and more than double that in defunct satellites. But last year in October, SpaceX requested permission to launch 30,000 Starlink satellites into low-earth orbit. This is in addition to the 12,000 that already received approval. These satellites have already begun interrupting astronomical observations, creating light pollution and increasing collision risks in an environment where a collision could trigger a chain reaction which not only endangers current and future satellites but also human lives."),
+                                    html.P(children=[
+                                        "This dashboard consists of a few demonstrations of how congested space has become and where it is going.  This dashboard website is written in Python using ",
+                                        html.A(children="Plotly Dash",href="https://plotly.com/dash/", target="_blank"),
+                                        ".  The layout for the dashboard comes from ",
+                                        html.A(children="AdminLTE", href="https://adminlte.io/", target="_blank"),
+                                        ", a free open-source implemenation of Bootstrap. The data used to compile these visuals come from the following sources:"
+                                    ]),
+                                    html.P(
+                                        html.Ul(children=[
+                                            html.Li(children=[
+                                                html.A(href='https://www.space-track.org/',children="Space-Track.org", target="_blank"),
+                                                " - For providing the TLE data",
+                                            ]),
+                                            html.Li(children=[
+                                                html.A(href='https://celestrak.com/SOCRATES/',children="SOCRATES", target="_blank"),
+                                                " - For upcoming satellite collision probability detection",
+                                            ]),
+                                            html.Li(children=[
+                                                html.A(href='https://ntrs.nasa.gov/',children="NASA's History of On-Orbit Satellite Fragmentations", target="_blank"),
+                                                " - For satellite breakup dates",
+                                            ]),
+                                        ])
+                                    ),
+                                    html.P("The following additional Python libaries are used by this dashboard:"),
+                                    html.P(
+                                        html.Ul(children=[
+                                            html.Li(html.A("Pandas", href='https://pypi.org/project/pandas/', target="_blank")),
+                                            html.Li(html.A("Numpy", href='https://pypi.org/project/numpy/', target="_blank")),
+                                            html.Li(html.A("Plotly", href='https://plotly.com/', target="_blank")),
+                                            html.Li(html.A("Matplotlib", href='https://matplotlib.org/', target="_blank")),
+                                            html.Li(html.A("Satellite-CZML", href='https://pypi.org/project/satellite-czml/', target="_blank"))
+                                        ])
+                                    ),
 
-########### Define your variables
-beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
-ibu_values=[35, 60, 85, 75]
-abv_values=[5.4, 7.1, 9.2, 4.3]
-color1='darkred'
-color2='orange'
-mytitle='Beer Comparison'
-tabtitle='beer!'
-myheading='t-SNE Visualization'
-label1='IBU'
-label2='ABV'
-#  githublink='https://github.com/austinlasseter/flying-dog-beers'
-#  sourceurl='https://www.flyingdog.com/beers/'
+
+                                    html.P(children=[
+                                        "This dashboard also uses CersiumJS for some of the visualziations.  ",
+                                        html.A("CesiumJS", href='https://cesium.com/cesiumjs/', target="_blank"),
+                                        " is an open source JavaScript library for creating a 3D map of the earth and creates interactive animations using their CZML language written in JSON."
+                                    ]),
+                                    
+
+                                    html.P("This work is a collaboration of the following individuals (surname in alphabetical order):"),
+                                    html.P(
+                                        html.Ul(children=[
+                                            html.Li(html.A(href='https://github.com/timzai',children="Tim Chen", target="_blank")),
+                                            html.Li(html.A(href='https://github.com/sophde',children="Sophie Deng", target="_blank")),
+                                            html.Li(html.A(href='https://github.com/cassova',children="Nicholas Miller", target="_blank")),
+                                        ])
+                                    ),
+                                    
+
+                                    html.P(children=[
+                                        "For the full report of the analysis, please ",
+                                        html.A(href='https://mads-hatters.github.io/',children="Click Here", target="_blank"),
+                                        ". The code for this dashboard and the report are open source under the MIT license and can be found ",
+                                        html.A(href='https://github.com/mads-hatters/SIADS-591-Orbital-Congestion',children="Here", target="_blank"),
+                                    ]),
+                                    
+
+                                    html.P(children=[
+                                        html.B("Suggested citation: "),
+                                        "Chen-Deng-Miller, Orbital Congestion, 3 Feb 2021, Retrieved from: https://oc-dash.herokuapp.com/"
+                                    ]),
+                                ])
+                            ])
+                        ])
+                    ])
 
 
-bitterness = go.Bar(
-    x=beers,
-    y=ibu_values,
-    name=label1,
-    marker={'color':color1}
-)
-alcohol = go.Bar(
-    x=beers,
-    y=abv_values,
-    name=label2,
-    marker={'color':color2}
-)
-
-beer_data = [bitterness, alcohol]
-
-beer_layout = go.Layout(
-    barmode='group',
-    title = mytitle
-)
-
-beer_fig = go.Figure(data=beer_data, layout=beer_layout)
-
-tab_6_layout = html.Div(children=[
-    html.H6(myheading),
-    dcc.Graph(
-        id='flyingdog',
-        figure=beer_fig
-    )])
