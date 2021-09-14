@@ -4,7 +4,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 tab_3_layout = html.Div([
-    html.H1('Page 3'),
+    html.H5('Machine Learning'),
     html.Div([
         html.Div([
             html.H6('Select one:'),
