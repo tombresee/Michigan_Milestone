@@ -1,11 +1,17 @@
+#------------------------------------------------------------------------------------------------
 
+# Project:  Sensor Analysis Milestone
+# Authors:  - 
 
-# libraries 
+#------------------------------------------------------------------------------------------------
+
+# Libraries 
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 from dash.dependencies import Input, Output
+#
 from tabs import tab_1
 from tabs import tab_2
 from tabs import tab_3
@@ -13,72 +19,60 @@ from tabs import tab_4
 from tabs import tab_5
 from tabs import tab_6
 
+#------------------------------------------------------------------------------------------------
 
-
-########### Define variables ########### 
+# --- Variables ---
 myheading1 = 'Sensor Analysis - AoT Cluster'
-# any way of making this font smaller ? 
-
 tabtitle = 'Array_of_Things Analysis'
-
 sourceurl = 'https://dash.plot.ly/dash-core-components/tabs'
-# what does this do ? 
-
-# original code:  
-# githublink = 'https://github.com/austinlasseter/dash-multitab-simple'
 githublink = 'https://github.com/tombresee/Michigan_Milestone'
 
+#------------------------------------------------------------------------------------------------
 
-########### Initiate the app
+# --- Initiate the app ---
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+external_css =         ['http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css',
+                        'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css']
+# --- Standard ---
+app = dash.Dash(__name__, 
+	            external_stylesheets=external_css)
 
-external_css = ['http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css',
-                'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
-                ]
-
-
-app = dash.Dash(__name__, external_stylesheets=external_css)
 server = app.server
+
 app.title=tabtitle
-app.config['suppress_callback_exceptions'] = True
 
+app.config['suppress_callback_exceptions'] = True  # DO I NEED THIS ? 
 
-
-
-########### Set up the layout
+#------------------------------------------------------------------------------------------------
+# --- Set up the layout ---
 app.layout = html.Div([
-    html.H5(myheading1),
-        dcc.Tabs(id="tabs-example", value='tab-1-example',
-            children=[
-                dcc.Tab(label='Introduction', value='tab-1-example'),
-                dcc.Tab(label='Data Analysis', value='tab-2-example'),
-                dcc.Tab(label='Visualization', value='tab-3-example'),
-                dcc.Tab(label='Unsupervised Machine Learning', value='tab-4-example'),
-                dcc.Tab(label='Temp', value='tab-5-example'),
-                dcc.Tab(label='Verbage', value='tab-6-example'),
-    ]),
+    html.H4(myheading1),
+    dcc.Tabs(id="tabs-example", value='tab-1-example',
+             children=[
+               dcc.Tab(label='Introduction', value='tab-1-example'),
+               dcc.Tab(label='Data Analysis', value='tab-2-example'),
+               dcc.Tab(label='Visualization', value='tab-3-example'),
+               dcc.Tab(label='Unsupervised Machine Learning', value='tab-4-example'),
+               dcc.Tab(label='Temp', value='tab-5-example'),
+               dcc.Tab(label='Verbage', value='tab-6-example')]),
     html.Div([
         html.Div(id='tabs-content-example'),
     ], className='twelve columns',
-        style={'marginBottom': 50, 'marginTop': 25}),
-
+       style={'marginBottom': 50, 'marginTop': 25}),
     html.Div([
-        html.A('Code on Github', href=githublink),
-        html.Br(),
-        html.A("Data Source", href=sourceurl),
-    ], className='twelve columns',
-        style={'textAlign':'right',
-                'fontColor':'#FFFFFF',
-                'backgroundColor':'white',})
-                #  'backgroundColor':'#D3D3D3',})
-])
+       html.A('Code on Github', href=githublink),
+       html.Br(),
+       html.A("Data Source", href=sourceurl),
+             ], className='twelve columns',
+                style={'textAlign':'right','fontColor':'#FFFFFF', 'backgroundColor':'white',})
+                      ])
 
-
+#------------------------------------------------------------------------------------------------
 
 # --- Pressing main menu buttons ---
 @app.callback(
 	Output('tabs-content-example', 'children'),
-    [Input('tabs-example', 'value')])
+    [Input('tabs-example', 'value')])   # SOMETIMES THEY DON'T USE THE BRACKETS 
 def render_content(tab):
     if tab == 'tab-1-example':
         return tab_1.tab_1_layout
@@ -94,13 +88,14 @@ def render_content(tab):
     elif tab == 'tab-6-example':
         return tab_6.tab_6_layout
 
+#------------------------------------------------------------------------------------------------
 
+# --- Tab definitions callbacks ---
 # Tab 1 callback
 @app.callback(Output('page-1-content', 'children'),
               [Input('page-1-dropdown', 'value')])
 def page_1_dropdown(value):
     return None
-
 
 # Tab 2 callback
 @app.callback(Output('page-2-content', 'children'),
@@ -108,20 +103,17 @@ def page_1_dropdown(value):
 def page_2_radios(value):
     return None
 
-
 # Tab 3 callback
 @app.callback(Output('page-3-content', 'children'),
               [Input('page-3-slider', 'value')])
 def page_3_slider(value):
     return None
 
-
 # Tab 4 callback
 @app.callback(Output('page-4-content', 'children'),
               [Input('page-4-slider', 'value')])
 def page_4_slider(value):
     return None
-
 
 # Tab 5 callback
 @app.callback( Output('page-5-content', 'children'),
@@ -135,15 +127,20 @@ def page_5_slider(value):
 def page_6_slider(value):
     return None
 
-
 # use ? keep ? 
 # Suppress errors (tabs)
 # app.config['suppress_callback_exceptions'] = True
 
-
+#------------------------------------------------------------------------------------------------
 
 # --- Deploy ---
 if __name__ == '__main__':
     app.run_server(debug=True)
+
+# if __name__ == '__main__':
+#     app.run_server(debug=True, use_reloader=False)
+   
+# - Add anything else ? - 
+#    + abc 
 
 
