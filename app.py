@@ -11,6 +11,7 @@ from tabs import tab_2
 from tabs import tab_3
 from tabs import tab_4
 from tabs import tab_5
+from tabs import tab_6
 
 
 
@@ -49,6 +50,7 @@ app.layout = html.Div([
                 dcc.Tab(label='Visualization', value='tab-3-example'),
                 dcc.Tab(label='Unsupervised Machine Learning', value='tab-4-example'),
                 dcc.Tab(label='Temp', value='tab-5-example'),
+                dcc.Tab(label='Verbage', value='tab-6-example'),
     ]),
     html.Div([
         html.Div(id='tabs-content-example'),
@@ -80,6 +82,8 @@ def render_content(tab):
         return tab_4.tab_4_layout
     elif tab == 'tab-5-example':
         return tab_5.tab_5_layout
+    elif tab == 'tab-6-example':
+        return tab_6.tab_6_layout
 
 
 # Tab 1 callback
@@ -115,6 +119,14 @@ def page_4_slider(value):
               [Input('page-5-slider', 'value')])
 def page_5_slider(value):
     return None
+
+# Tab 6 callback
+@app.callback( Output('page-6-content', 'children'),
+              [Input('page-6-slider', 'value')])
+def page_6_slider(value):
+    return None
+
+
 
 
 ############ Deploy
