@@ -9,6 +9,25 @@ tab_1_layout = html.Div([
     html.Div([
         html.Div([
             html.H6('Select one:'),
+
+                                    html.P(
+                                        html.Ul(children=[
+                                            html.Li(children=[
+                                                html.A(href='https://www.space-track.org/',children="Space-Track.org", target="_blank"),
+                                                " - For providing the TLE data",
+                                            ]),
+                                            html.Li(children=[
+                                                html.A(href='https://celestrak.com/SOCRATES/',children="SOCRATES", target="_blank"),
+                                                " - For upcoming satellite collision probability detection",
+                                            ]),
+                                            html.Li(children=[
+                                                html.A(href='https://ntrs.nasa.gov/',children="NASA's History of On-Orbit Satellite Fragmentations", target="_blank"),
+                                                " - For satellite breakup dates",
+                                            ]),
+                                        ])
+                                    )
+
+
                                    
 
             # dcc.Dropdown(
@@ -22,7 +41,7 @@ tab_1_layout = html.Div([
             #                 ),
             # ),
 
-            
+
         ], className='four columns'),
 
 
