@@ -30,12 +30,15 @@ githublink = 'https://github.com/tombresee/Michigan_Milestone'
 
 
 
+
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 app.title=tabtitle
 app.config['suppress_callback_exceptions'] = True
+
+
 
 
 
@@ -70,18 +73,22 @@ app.layout = html.Div([
 
 
 
+
+
 @app.callback(Output('tabs-content-example', 'children'),
               [Input('tabs-example', 'value')])
 
 
+
 # this is the tab definitions, very critical 
 def render_content(tab):
-    if tab == 'tab-1-example':
+    if tab ==   'tab-1-example':
         return tab_1.tab_1_layout
     elif tab == 'tab-2-example':
         return tab_2.tab_2_layout
     elif tab == 'tab-3-example':
         return tab_3.tab_3_layout
+
 
 
 
@@ -92,7 +99,6 @@ def page_1_dropdown(value):
     #  remove this line, so no return: 
     # return 'You have selected "{}"'.format(value)
     return None 
-    # or maybe return None ? 
 
 
 
@@ -101,18 +107,14 @@ def page_1_dropdown(value):
               [Input('page-2-radios', 'value')])
 def page_2_radios(value):
     return None
-    # original code you removed:
-    # return 'You have selected "{}"'.format(value)
-
+    
 
 # Tab 3 callback
 @app.callback(Output('page-3-content', 'children'),
               [Input('page-3-slider', 'value')])
 def page_3_slider(value):
-    return f'You have selected "{str(value)}"'
-
-
-
+    return None
+    
 
 ############ Deploy
 if __name__ == '__main__':

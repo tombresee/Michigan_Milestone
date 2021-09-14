@@ -21,8 +21,6 @@ tab_1_layout =   html.Div([
                                         " is an open source JavaScript library for creating a 3D map of the earth and creates interactive animations using their CZML language written in JSON."
                                     ]),
                                     
-
-            # may need to put that back in 
             dcc.Dropdown(
                 id='page-1-dropdown',
                 options=[{'label': i, 'value': i} for i in ['A', 'B', 'C']],
@@ -34,7 +32,6 @@ tab_1_layout =   html.Div([
                             ),
             ),
         ], className='four columns'),
-
 
         html.Div([
             html.H6(id='page-1-content')

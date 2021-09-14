@@ -5,6 +5,7 @@ from dash.dependencies import Input, Output
 
 tab_3_layout = html.Div([
     html.H1('Page 3'),
+    
     html.Div([
         html.Div([
             html.H6('Select one:'),
@@ -17,8 +18,10 @@ tab_3_layout = html.Div([
                 value=5,
             ),
         ], className='four columns'),
+        
         html.Div([
             html.H6(id='page-3-content')
         ], className='eight columns'),
     ], className='twelve columns'),
 ], className='twelve columns')
+
