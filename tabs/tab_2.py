@@ -6,7 +6,6 @@ from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import plotly.graph_objects as go
-import geopandas as gpd
 import numpy as np
 import pandas as pd
 import math
