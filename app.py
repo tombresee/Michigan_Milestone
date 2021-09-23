@@ -22,6 +22,12 @@ import plotly.graph_objects as go
 import numpy as np
 import pandas as pd
 import math
+import json
+from boto.s3.connection import S3Connection
+import os
+#s3 = S3Connection(os.environ['S3Key'], os.environ['S3Secret'])
+AWS_ACCESS_KEY_ID = os.getenv("S3KEY")
+AWS_SECRET_ACCESS_KEY = os.getenv("S3SECRET")
 #
 from tabs import tab_1
 from tabs import tab_2
@@ -101,8 +107,8 @@ app.layout = html.Div([
               children=[
                dcc.Tab(label='Introduction', 
                        value='tab-1-example'),
-               dcc.Tab(label='Data Analysis', value='tab-2-example'),
-               dcc.Tab(label='Visualization', value='tab-3-example'),
+               dcc.Tab(label='Dashboard', value='tab-2-example'),
+               dcc.Tab(label='Sensor Information', value='tab-3-example'),
                dcc.Tab(label='Unsupervised Machine Learning', value='tab-4-example'),
                dcc.Tab(label='Temp', value='tab-5-example'),
                dcc.Tab(label='Verbage', value='tab-6-example')]),
@@ -160,6 +166,58 @@ def page_1_dropdown(value):
               [Input('page-2-radios', 'value')])
 def page_2_radios(value):
     return None
+
+@app.callback(
+    Output('click-data', 'figure'),
+    Input('sensorLoc', 'clickData'),
+    Input('my-date-picker-range', 'start_date'),
+    Input('my-date-picker-range', 'end_date'),
+    [Input("sensor-dropdown", "value"),
+    Input("subsystems-dropdown", "value"),
+    Input("parameter-dropdown","value")])
+
+def display_click_data(clickData,start_date,end_date,sensor,subsystem,parameter):
+    node = clickData['points'][0]['hovertext']
+    df = pd.read_parquet('s3://wolverine-tomahawk/aot/HourlyData/node-'+node+'_hourly_mean.parquet.gzip',storage_options={
+                      "key":AWS_ACCESS_KEY_ID,
+                      "secret":AWS_SECRET_ACCESS_KEY})
+    df = df[(df['subsystem']==subsystem)&(df['sensor']==sensor)&(df['parameter']==parameter)]
+    df['timestamp']=pd.to_datetime(df['timestamp'])
+    df['value_hrf']=df['value_hrf'].astype('float')
+    df = df[(df['timestamp']>=pd.to_datetime(start_date)) & (df['timestamp']<=pd.to_datetime(end_date))]
+    #df = df.groupby(pd.Grouper(key='timestamp',freq='D')).mean()
+    sensorsdf = pd.read_csv('D:/Documents/Python/Michigan_Milestone_Initial_Work/ENTER/RAW DATASET II/sensors.csv')
+    sensorsdf = sensorsdf[(sensorsdf['subsystem']==subsystem)&(sensorsdf['sensor']==sensor)&(sensorsdf['parameter']==parameter)]
+    label = sensorsdf['hrf_unit'].unique()[0]
+    fig = px.line(df,x='timestamp',y='value_hrf')
+    fig.update_layout(title = "{} Data for Node: {}".format(parameter,node),
+                      yaxis_title=label)
+    return fig
+
+@app.callback(
+    Output("sensor-dropdown", "options"),
+    Input("subsystems-dropdown", "value")
+)
+def update_options(search_value):
+    sensorsdf = pd.read_csv('s3://wolverine-tomahawk/aot/sensors_data.csv',storage_options={
+                      "key":AWS_ACCESS_KEY_ID,
+                      "secret":AWS_SECRET_ACCESS_KEY})
+    sensorsdf = sensorsdf[sensorsdf['subsystem']==search_value]
+    sensors = sensorsdf['sensor'].unique()
+    return [{'label': i, 'value': i} for i in sensors]
+
+@app.callback(
+    Output("parameter-dropdown", "options"),
+    [Input("sensor-dropdown", "value"),
+    Input("subsystems-dropdown", "value")]
+)
+def update_parameter_options(sensorvalue,subsystemsvalue):
+    sensorsdf = pd.read_csv('s3://wolverine-tomahawk/aot/sensors_data.csv',storage_options={
+                  "key":AWS_ACCESS_KEY_ID,
+                  "secret":AWS_SECRET_ACCESS_KEY})
+    sensorsdf = sensorsdf[(sensorsdf['subsystem']==subsystemsvalue)&(sensorsdf['sensor']==sensorvalue)]
+    parameters = sensorsdf['parameter'].unique()
+    return [{'label': i, 'value': i} for i in parameters]
 
 # Tab 3 callback
 @app.callback(Output('page-3-content', 'children'),
