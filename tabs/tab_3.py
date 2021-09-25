@@ -17,8 +17,9 @@ tab_3_layout = html.Div([
         html.Div([
             html.H6('''Prior to starting this analysis, Michael had an idea of where anomalies may
             be due to him living in Chicago during a large portion of this time frame. At the end of
-            January 2019, there was a Polar Vortex that hit the area. 
-            Link Here: https://en.wikipedia.org/wiki/January%E2%80%93February_2019_North_American_cold_wave#:~:text=In%20late%20January%202019%2C%20a,killing%20at%20least%2022%20people.&text=As%20a%20result%2C%20February%202019,on%20record%20in%20these%20regions.
+            January 2019, there was a Polar Vortex that hit the area. '''),
+            html.A('Polar Vortex Link Here',href='https://en.wikipedia.org/wiki/January%E2%80%93February_2019_North_American_cold_wave#:~:text=In%20late%20January%202019%2C%20a,killing%20at%20least%2022%20people.&text=As%20a%20result%2C%20February%202019,on%20record%20in%20these%20regions.'),
+            html.H6('''
             This caused a drastic drop in temperatures which led to record lows during the period.
             To ensure that our model was working correctly, we felt that this instance must 
             show up in our anomalies.''')
@@ -39,7 +40,7 @@ tab_3_layout = html.Div([
         ], className='four columns'),
         html.Div([
             html.Br(),
-            html.H6('We tweaked the model a touch by changing eps from .01 to .003.'),
+            html.H6('We tweaked the model a touch by changing eps from .01 to .003. This identified more anomalies.'),
             html.Img(src='assets/pow_tuned_2.png',height='400px',width='1200px')
         ], className='four columns'),
         html.Div([
