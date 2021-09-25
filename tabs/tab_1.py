@@ -1,31 +1,3 @@
-# import dash
-# import dash_core_components as dcc
-# import dash_html_components as html
-# from dash.dependencies import Input, Output
-
-# tab_1_layout = html.Div([
-#     html.H5('Introduction'),
-#     html.Div([
-#         html.Div([
-#             html.H6('Select one:'),
-#             dcc.RadioItems(
-#                 id='page-1-radios',
-#                 options=[{'label': i, 'value': i} for i in ['Sensor', 'Node', 'KPI']],
-#                 value='Orange',
-#                 style = dict(
-#                     width = '70%',
-#                     display = 'inline-block',
-#                     verticalAlign = "middle"
-#                     ),
-#             )
-#         ], className='four columns'),
-#         html.Div([
-#             html.H6(id='page-1-content')
-#         ], className='eight columns'),
-#     ], className='twelve columns'),
-# ], className='twelve columns')
-
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -42,6 +14,10 @@ tab_1_layout = html.Div([
         html.Div([
             html.H1('Welcome to Chicago AOT Sensor Analysis'),
             html.H2('By: Tom Bresee and Michael Phillips'),
+            html.Br(),
+            html.A('Github Repository',href='https://github.com/tombresee/SensorAnalysis'),
+            html.Br(),
+            html.A('Github Page',href='https://tombresee.github.io/SensorAnalysis/'),
             html.Br(),
             html.H6("""As a continuing investigation into the realm of real-world sensor analytics,
                 we focus on a massive Internet of Things (IoT) cluster known as the Array of Things,
@@ -73,7 +49,10 @@ tab_1_layout = html.Div([
                 One of our goals is to create code to cluster streams of time-series data into normal, non-normal, and anomalous.")
                 """),
             html.Br(),
-            html.H6('The dataset can be found at https://www.mcs.anl.gov/research/projects/waggle/downloads/datasets/index.php')
+            html.Div([
+                html.H6('The dataset can be found '),
+                html.A('here', href='https://www.mcs.anl.gov/research/projects/waggle/downloads/datasets/index.php')
+            ],className='row'),
         ], className='four columns'),
     ], className='twelve columns'),
 ], style={'margin-right':'60px','margin-left':'60px'})
