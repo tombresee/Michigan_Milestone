@@ -72,9 +72,18 @@ fig.update_traces(marker_size=10)
 tab_2_layout = html.Div([
     html.Div([
         html.H1('Sensor Data'),
-        ],style={
-        'text-align':'center'}
-    ),
+        ], style={'margin-right':'60px','margin-left':'60px'})
+    ,
+    html.Div([
+        html.H4('Instructions:'),
+        html.H6('''Select a Date Range, Subsystem, Sensor, and Parameter, 
+        then select one of the blue nodes on the map and wait a few seconds 
+        for the graph on the right to load. Note: Not every blue sensor will 
+        have the exact data that you are looking for. A good start is the 
+        default values and selecting node '001e0610ba3b'. This node is located
+        just below in the 'a' in Chicago on the map.
+        ''')
+    ], style={'margin-right':'60px','margin-left':'60px'}),
     html.Br(),
     html.Div([
         html.Div([
@@ -103,7 +112,7 @@ tab_2_layout = html.Div([
                 max_date_allowed=datetime.datetime.now(),
                 initial_visible_month=datetime.date(2018, 1, 1),
                 start_date=datetime.date(2018,1,1),
-                end_date=datetime.datetime.now()
+                end_date=datetime.date(2018,3,1)
                 )
             ],
             style = {'text-align':'center','width':'25%','padding-right':'30px','padding-left':'30px'}
@@ -112,6 +121,7 @@ tab_2_layout = html.Div([
             dcc.Dropdown(
                 id='subsystems-dropdown',
                 options=[{'label': i, 'value': i} for i in subsystems],
+                value = 'metsense'
                 ),
             ],
             style = {'text-align':'center','width':'25%','padding-right':'30px','padding-left':'30px'}
@@ -119,6 +129,7 @@ tab_2_layout = html.Div([
         html.Div([
             dcc.Dropdown(
                 id='sensor-dropdown',
+                value = 'bmp180'
                 ),
             ],
             style = {'text-align':'center','width':'25%','padding-right':'30px','padding-left':'30px'}
@@ -126,6 +137,7 @@ tab_2_layout = html.Div([
         html.Div([
             dcc.Dropdown(
                 id='parameter-dropdown',
+                value = 'temperature'
                 ),
             ],
             style = {'text-align':'center','width':'25%','padding-right':'30px','padding-left':'30px'}

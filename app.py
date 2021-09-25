@@ -24,16 +24,13 @@ import pandas as pd
 import math
 import json
 import os
-#s3 = S3Connection(os.environ['S3Key'], os.environ['S3Secret'])
-AWS_ACCESS_KEY_ID = os.getenv("S3KEY")
-AWS_SECRET_ACCESS_KEY = os.getenv("S3SECRET")
+
+AWS_ACCESS_KEY_ID = os.environ.get("S3KEY")
+AWS_SECRET_ACCESS_KEY = os.environ.get("S3SECRET")
 #
 from tabs import tab_1
 from tabs import tab_2
 from tabs import tab_3
-from tabs import tab_4
-from tabs import tab_5
-from tabs import tab_6
 
 #------------------------------------------------------------------------------------------------
 
@@ -71,8 +68,7 @@ menu_tabs_styles = {
     'height': '46px',
     'width':'100%',
     'border': '1px solid',
-    'border-color' : '#222d32',
-    'width': '230px'
+    'border-color' : '#222d32'
 }
 menu_tab_style = {
     'border': '1px solid',
@@ -107,10 +103,7 @@ app.layout = html.Div([
                dcc.Tab(label='Introduction', 
                        value='tab-1-example'),
                dcc.Tab(label='Dashboard', value='tab-2-example'),
-               dcc.Tab(label='Sensor Information', value='tab-3-example'),
-               dcc.Tab(label='Unsupervised Machine Learning', value='tab-4-example'),
-               dcc.Tab(label='Temp', value='tab-5-example'),
-               dcc.Tab(label='Verbage', value='tab-6-example')]),
+               dcc.Tab(label='Unsupervised Learning', value='tab-3-example')]),
     html.Div([
         html.Div(id='tabs-content-example'),
     ], className='twelve columns',
@@ -137,12 +130,6 @@ def render_content(tab):
         return tab_2.tab_2_layout
     elif tab == 'tab-3-example':
         return tab_3.tab_3_layout
-    elif tab == 'tab-4-example':
-        return tab_4.tab_4_layout
-    elif tab == 'tab-5-example':
-        return tab_5.tab_5_layout
-    elif tab == 'tab-6-example':
-        return tab_6.tab_6_layout
 
 #------------------------------------------------------------------------------------------------
 
@@ -226,23 +213,6 @@ def update_parameter_options(sensorvalue,subsystemsvalue):
 def page_3_slider(value):
     return None
 
-# Tab 4 callback
-@app.callback(Output('page-4-content', 'children'),
-              [Input('page-4-slider', 'value')])
-def page_4_slider(value):
-    return None
-
-# Tab 5 callback
-@app.callback( Output('page-5-content', 'children'),
-              [Input('page-5-slider', 'value')])
-def page_5_slider(value):
-    return None
-
-# Tab 6 callback
-@app.callback( Output('page-6-content', 'children'),
-              [Input('page-6-slider', 'value')])
-def page_6_slider(value):
-    return None
 
 # use ? keep ? 
 # Suppress errors (tabs)
