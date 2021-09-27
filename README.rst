@@ -7,12 +7,13 @@ Michigan Milestone - Data Science
 |
 
 :Authors: Tom Bresee, Michael Phillips 
-:Primary Contributor: Michael Phillips 
+:Primary Developer: Michael Phillips 
 :University: Michigan
 :Mark:  I
 :Heroku Link:  https://michigan-milestone.herokuapp.com/
-:Milestone Splash Page:  https://tombresee.github.io/SensorAnalysis/
-:Milestone Project Page:  https://github.com/tombresee/SensorAnalysis
+:Milestone Part B Splash Page:  https://tombresee.github.io/SensorAnalysis/
+:Milestone Part B Project Page:  https://github.com/tombresee/SensorAnalysis
+:Milestone Part A Code:  https://github.com/mphillipsjr96/HAR
 
 
 |
